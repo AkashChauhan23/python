@@ -1,7 +1,7 @@
 import requests
 import time
 import multiprocessing
-import concurrent.futures
+from concurrent.futures import ProcessPoolExecutor
 
 url = "https://picsum.photos/5000/4000"
 
@@ -49,7 +49,7 @@ def multiProcessing(url):
 
 
 def processPoolExecuter(url):
-    with concurrent.futures.ProcessPoolExecutor() as executer:
+    with ProcessPoolExecutor() as executer:
         list_url = [url for i in range(5)]
         list_name = [i for i in range(5)]
 
